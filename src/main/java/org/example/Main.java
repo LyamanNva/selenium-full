@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
@@ -15,16 +16,20 @@ public class Main {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-       String baseUrl="https://demo.guru99.com/test/radio.html";
-       driver.get(baseUrl);
-        WebElement radio1= driver.findElement(By.id("vfb-7-1"));
-       radio1.click();
 
-        WebElement radio2= driver.findElement(By.id("vfb-7-2"));
-        radio2.click();
+       driver.get("https://www.amazon.com.tr");
+       WebElement tabBarAccount=driver.findElement(By.id("nav-link-accountList"));
+        Actions actions=new Actions(driver);
+        actions.moveToElement(tabBarAccount).perform();
 
-        WebElement radio3= driver.findElement(By.id("vfb-7-3"));
-        radio3.click();
+        try {
+            Thread.sleep(3000);
+        }catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }
+        WebElement loginButton= driver.findElement(By.xpath("//*[@id='nav-flyout-ya-signin']/a/span"));
+        loginButton.click();
+
 //       driver.quit();
     }
 }
