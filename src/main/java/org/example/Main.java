@@ -15,14 +15,16 @@ public class Main {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-       String baseUrl="https://demo.guru99.com/test/login.html";
+       String baseUrl="https://demo.guru99.com/test/radio.html";
        driver.get(baseUrl);
-       WebElement email=driver.findElement(By.id("email"));
-       WebElement password=driver.findElement(By.id("passwd"));
-       email.sendKeys("leman@gmail.com");
-       password.sendKeys("13");
-       WebElement button=driver.findElement(By.id("SubmitLogin"));
-       button.click();
-       driver.quit();
+        WebElement radio1= driver.findElement(By.id("vfb-7-1"));
+       radio1.click();
+
+        WebElement radio2= driver.findElement(By.id("vfb-7-2"));
+        radio2.click();
+
+        WebElement radio3= driver.findElement(By.id("vfb-7-3"));
+        radio3.click();
+//       driver.quit();
     }
 }
