@@ -9,15 +9,10 @@ public class Main {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
-        String baseUrl="https://www.google.com";
-        driver.get(baseUrl);
-        String expectedData="Google";
-        String actualData=driver.getTitle();
-        if (expectedData.equals(actualData)){
-            System.out.println("test passed");
-        }else {
-            System.out.println("test failed");
-        }
+       driver.get("https://www.google.com");
+       driver.navigate().to("https://www.facebook.com");
+       driver.navigate().back();
+       driver.navigate().forward();
         driver.quit();
     }
 }
